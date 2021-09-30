@@ -27,13 +27,5 @@ ADD ./myapp .
 # 5000是我們服務所在的port
 EXPOSE 5000
 
-# 在系統中加入一個新system user 和 group，名稱皆為appuser
-RUN adduser --system --group --no-create-home appuser
-
-# 把 /app 這個directory的擁有權指定給appuser
-RUN chown appuser:appuser -R /app
-
-# 把container的 user 轉到appuser
-USER appuser
 # CMD代表command，當你啟動這個container時，會預設執行這個指令
 CMD ["python3","/app/app.py"]
