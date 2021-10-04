@@ -1,0 +1,19 @@
+apiVersion: skaffold/v2beta18
+kind: Config
+metadata:
+  name: course
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: 108356037/flask-ping-pong
+    context: ping_pong
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    #- k8s_yamls/ngx-depl.yaml
+    #- k8s_yamls/ngx-pod.yaml
+    - skaffold_yamls/flask-ping-pong.yaml
+    - skaffold_yamls/flask-ping-pong-srv.yaml
