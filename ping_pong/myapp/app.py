@@ -10,5 +10,8 @@ def home():
 def get_pong():
     return jsonify({'message':'pong'})
 
+@app.route('/pong')
+def get_ping():
+    return jsonify({'message':'ping'})
 
 app.run(debug=True, host='0.0.0.0', port=5000)
