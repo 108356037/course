@@ -3,9 +3,16 @@ kind: Service
 metadata:
   name: flask-depl-srv
 spec:
+  # traffic的方向: clusterIP:port =====> podIP:targetPort
+  # targetPort必須是你服務所開的port  
   ports:
   - port: 5555
     protocol: TCP
     targetPort: 5000
+
+  # 把traffic導向有此label的pod 
   selector:
     app: flask-depl
+
+  # 預設的種類是 clusterIP，另有 LoadBalancer, NodePort
+  type: ClusterIP
