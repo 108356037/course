@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  # pod 的名字
+  name: ngx-pod
+  labels:
+    app: ngx-test
+spec:
+  # pod裡面該啟動哪些container，此範例只有一個container
+  containers:
+  - image: nginx:latest #啟動container用的image
+    name: ngx-pod # container的名字
+  
+    env:
+    - name: STAGE
+      value: dev 
+    - name: API_KEY
+      value: some-api-key-secret
+
+    resources: {}

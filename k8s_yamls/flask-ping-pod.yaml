@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  # pod 的名字
+  name: flask-single-pod
+  labels:
+    app: flask-depl
+spec:
+  # pod裡面該啟動哪些container，此範例只有一個container
+  containers:
+  - image: 108356037/flask-ping-pong:latest #啟動container用的image
+    name: flask-pod # container的名字
+    command: ["python3"]
+    args: ["/app/app.py"]
+    resources: {}
