@@ -1,7 +1,8 @@
 # local 端的 file structure 如下
 # ----------------------------------------------------
 #└── simple_flask
-#    ├── Dockerfile
+#    ├── nonrootuser.Dockerfile
+#    ├── rootuser.Dockerfile
 #    ├── myapp
 #    │   ├── app.py
 #    │   └── templates
