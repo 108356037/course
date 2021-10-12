@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-depl-srv-lb
+spec:
+  # traffic的方向: externalIP:port =====> podIP:targetPort
+  # targetPort必須是你服務所開的port  
+  ports:
+  - port: 5555
+    protocol: TCP
+    targetPort: 5000
+
+  # 把traffic導向有此label的pod 
+  selector:
+    app: flask-depl
+
+  type: LoadBalancer

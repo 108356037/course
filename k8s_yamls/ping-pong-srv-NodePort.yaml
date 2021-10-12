@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-depl-srv-np
+spec:
+  # traffic的方向: NodeIP:NodePort =====> podIP:targetPort
+  # targetPort必須是你服務所開的port  
+  # NodePort default: 30000-32767
+  ports:
+  - port: 5555
+    protocol: TCP
+    targetPort: 5000  
+    nodePort: 32000
+
+  # 把traffic導向有此label的pod 
+  selector:
+    app: flask-depl
+
+  type: NodePort

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-depl
+spec:
+  # 你需要的pod數量
+  replicas: 2
+
+  # selector是replicaset用來尋找符合需求的pod，
+  # 下面template的pod label中必須有符合的label 
+  selector:
+    matchLabels:
+      app: flask-depl
+
+  # template是你透過replicaset想要生成的pod
+  # 實際上就是pod的yaml但少了kind/apiversion
+  template:
+    metadata:
+      labels:
+        app: flask-depl
+    spec:
+      containers:
+      - image: 108356037/flask-ping-pong
+        name: flask-ping-pong-server
+      
+        resources: {}
