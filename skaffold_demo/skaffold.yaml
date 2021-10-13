@@ -13,5 +13,6 @@ build:
 deploy:
   kubectl:
     manifests:
-    - skaffold_yamls/flask-ping-pong.yaml
+    - skaffold_yamls/flask-ping-pong-pod.yaml
+    - skaffold_yamls/flask-ping-pong-deployment.yaml
     - skaffold_yamls/flask-ping-pong-srv.yaml

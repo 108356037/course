@@ -23,4 +23,7 @@ spec:
       - image: 108356037/flask-ping-pong
         name: flask-ping-pong-server
       
-        resources: {}
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

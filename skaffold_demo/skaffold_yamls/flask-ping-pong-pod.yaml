@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    app: flask-depl
+spec:
+  containers:
+  - name: myapp
+    image: 108356037/flask-ping-pong
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 5000

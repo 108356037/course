@@ -9,7 +9,7 @@ spec:
   # pod裡面該啟動哪些container，此範例只有一個container
   containers:
   - image: nginx:latest #啟動container用的image
-    name: ngx-pod # container的名字
+    name: ngx-pod-container # container的名字
   
     env:
     - name: STAGE
